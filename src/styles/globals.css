@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-bricolage), 'Syne', sans-serif;
+  --font-body: var(--font-akshar), 'Space Grotesk', sans-serif;
+  --font-sans: var(--font-akshar), Arial, Helvetica, sans-serif;
+  --font-jakarta: var(--font-akshar);
+
+  /* New Color Palette */
+  --color-brand-lime: #dde294;
+  --color-brand-warm: #f4efe9;
+  --color-brand-gray: #eeeeee;
+  --color-brand-dark: #111827;
+
+  /* Blueray Page Variables */
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-open-sans: 'Open Sans', sans-serif;
+
+  --color-navy-deep: #001B3A;
+  --color-navy-midnight: #022C5E;
+  --color-gold: #FFD700;
+}
+
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+* {
+  @apply border-gray-200;
+}
+
+body {
+  font-family: var(--font-akshar), sans-serif !important;
+  color: var(--color-brand-dark) !important;
+  background-color: var(--color-brand-warm) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-bricolage), sans-serif !important;
+  font-weight: 400 !important; /* As specified in fonts config */
+}
+
+.font-body, p, span, li, a, input, textarea, select {
+  font-family: var(--font-akshar), sans-serif !important;
+}
+
+/* Premium Button Hover */
+.btn-premium {
+  @apply bg-brand-dark font-display font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 relative overflow-hidden flex items-center justify-center gap-3;
+  color: #ffffff !important;
+  font-family: var(--font-bricolage), sans-serif !important;
+  border-radius: 0;
+}
+
+.btn-premium:hover {
+  @apply bg-brand-lime scale-105 shadow-[0_10px_20px_rgba(221,226,148,0.3)];
+  color: #111827 !important;
+}
+
+.btn-premium::after {
+  content: '';
+  @apply absolute inset-0 bg-white/10 translate-x-[-100%] transition-transform duration-700 skew-x-12;
+}
+
+.btn-premium:hover::after {
+  @apply translate-x-[150%];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-lime);
+}
+
+select option {
+  background-color: #f3f4f6;
+  color: white;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Hollow Text Effect */
+.stroke-text {
+  -webkit-text-stroke: 1px #888;
+  color: transparent;
+}
+
+/* Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+
+/* Hide default cursor on desktop, but allow it on Blueray page by default or specific override if needed */
+/* Note: The user requested a visible mouse arrow on the Blueray page. 
+   Since `cursor: none` is applied globally by media query below, we need a way to override it.
+   Ideally, we should scope the custom cursor to not affect .blueray-page, or simply ensure 
+   the body on that page has `cursor: auto !important`. 
+*/
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Blueray Page Overrides */
+#blueray-body {
+  cursor: auto !important;
+}
+
+#blueray-body * {
+  cursor: auto !important;
+}
+
+#blueray-body a {
+  color: inherit !important;
+  /* Override the global white color for links */
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+#blueray-body a:hover {
+  /* Allow hover colors to work */
+  color: inherit !important;
+  cursor: pointer !important;
+}
+
+#blueray-body a.text-white {
+  color: #ffffff !important;
+}
+
+/* Re-enable specific hovers in Blueray page */
+#blueray-body .hover\:text-blue-600:hover {
+  color: #2563eb !important;
+}
+
+#blueray-body .hover\:text-gold:hover {
+  color: #FFD700 !important;
+}
+
+#blueray-body .hover\:text-green-400:hover {
+  color: #4ade80 !important;
+}
+
+#blueray-body .hover\:bg-green-700:hover {
+  background-color: #15803d !important;
+}
+
+#blueray-body .hover\:bg-white:hover {
+  background-color: #ffffff !important;
+}
+
+#blueray-body .hover\:text-navy-deep:hover {
+  color: #001B3A !important;
+}
+
+/* Restore cursor hiding for non-Blueray pages */
+/* Used a simpler approach than before to avoid conflicts */
+@media (min-width: 768px) {
+  body:not(:has(#blueray-body)) {
+    cursor: none;
+  }
+
+  body:not(:has(#blueray-body)) a,
+  body:not(:has(#blueray-body)) button,
+  body:not(:has(#blueray-body)) input,
+  body:not(:has(#blueray-body)) select {
+    cursor: none;
+  }
+
+.grid-bg {
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+}
