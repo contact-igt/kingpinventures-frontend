@@ -65,7 +65,7 @@ const Navbar = () => {
               Contact
             </Link>
             <a
-              href="https://whatsnexus.invictusglobaltech.com/"
+              href="https://whatsnexus.kingpinventures.in/"
               target="_blank"
               className="group btn-premium !px-7 !py-3.5 !text-[11px] transform transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-brand-lime/20"
             >
@@ -88,7 +88,7 @@ const Navbar = () => {
           <Link href="/about" className="hover:text-[#111827]">About</Link>
           <Link href="/contact" className="hover:text-[#111827]">Contact</Link>
           <a
-            href="https://whatsnexus.invictusglobaltech.com/"
+            href="https://whatsnexus.kingpinventures.in/"
             target="_blank"
             className="group btn-premium !text-sm !px-12 !py-5 mt-4"
           >

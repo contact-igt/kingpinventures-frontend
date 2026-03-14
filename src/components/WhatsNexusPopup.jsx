@@ -85,7 +85,7 @@ const WhatsNexusPopup = ({ isOpen, onClose }) => {
                         {/* CTA Button */}
                         <div className="text-center animate-slideUp delay-700 opacity-0 fill-mode-forwards">
                             <a
-                                href="https://whatsnexus.invictusglobaltech.com/"
+                                href="https://whatsnexus.kingpinventures.in/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-premium group flex items-center justify-center mx-auto gap-4 !rounded-lg !px-10 !py-4 shadow-xl hover:shadow-brand-lime/30"
